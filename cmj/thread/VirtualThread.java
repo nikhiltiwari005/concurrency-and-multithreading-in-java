@@ -9,6 +9,8 @@ public class VirtualThread {
         Thread.startVirtualThread(() -> AppLogger.info("2 " + Thread.currentThread()));
         Thread.startVirtualThread(() -> AppLogger.info("3 " + Thread.currentThread()));
         Thread.startVirtualThread(() -> AppLogger.info("4 " + Thread.currentThread()));
+        Thread.startVirtualThread(new MyTask());
         new Thread(() -> AppLogger.info("0 " + Thread.currentThread())).start();
+        new Thread(new MyTask()).start();
     }
 }
